@@ -1,8 +1,5 @@
 package com.cnge06.cne.protobuf;
 
-import com.google.protobuf.MessageLite;
-import com.msg.Msg.Protocol;
-
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -16,6 +13,9 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+
+import com.google.protobuf.MessageLite;
+import com.msg.Msg.Protocol;
 
 public class Client {
 	private static String host="192.168.1.100";
@@ -32,7 +32,7 @@ public class Client {
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
                 	ChannelPipeline p=ch.pipeline();
-                	p.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
+                	p.addLast("frameDecoder",new ProtobufVarint32FrameDecoder());
 					p.addLast("protobufDecoder",
 					        new ProtobufDecoder(messageLite));
 					

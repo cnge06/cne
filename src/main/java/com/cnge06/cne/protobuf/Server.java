@@ -39,7 +39,7 @@ public class Server {
 							//ExtensionRegistry registry = ExtensionRegistry.newInstance();
 							//Msg.registerAllExtensions(registry);
 							ChannelPipeline p = ch.pipeline();
-							p.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
+							p.addLast("frameDecoder",new ProtobufVarint32FrameDecoder());
 							/*p.addLast("protobufDecoder",
 							        new ProtobufDecoder(messageLite,
 							                registry));*/

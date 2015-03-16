@@ -3,6 +3,7 @@ package com.cnge06.cne.protobuf;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
+import com.google.protobuf.ByteString;
 import com.msg.Msg.Protocol;
 import com.msg.Msg.User;
 
@@ -28,6 +29,13 @@ public class ClientHandler extends ChannelHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
+		
+		Protocol p = (Protocol)msg;
+		User request=(User) User.class.getMethod("parseFrom", ByteString.class).invoke(null, p.getData());
+		System.out.println("success:"+request.getID());
+		System.out.println("success:"+request.getUserName());
+		System.out.println("success:"+request.getPassword());
+		System.out.println("success:"+request.getAbc());
 		// TODO Auto-generated method stub
 		/*super.channelRead(ctx, msg);
 		Protocol p = (Protocol)msg;

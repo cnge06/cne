@@ -7,12 +7,15 @@ import com.msg.Msg.User;
 
 
 public class UserRequest implements RequestFace<User> {
-	public void request(User request) {
+	public void request(User request,Response response) {
 		// TODO Auto-generated method stub
 		System.out.println("success:"+request.getID());
 		System.out.println("success:"+request.getUserName());
 		System.out.println("success:"+request.getPassword());
 		System.out.println("success:"+request.getAbc());
+		
+		response.write(request);
+		
 	}
 	
 	public static void main(String[] args) {
