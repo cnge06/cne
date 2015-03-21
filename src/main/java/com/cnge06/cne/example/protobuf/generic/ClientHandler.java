@@ -1,4 +1,4 @@
-package com.cnge06.cne.protobuf.generic;
+package com.cnge06.cne.example.protobuf.generic;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;

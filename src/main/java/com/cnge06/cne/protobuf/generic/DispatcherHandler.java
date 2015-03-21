@@ -21,11 +21,11 @@ public class DispatcherHandler extends ChannelHandlerAdapter {
 		String path=p.getPath();
 		ByteString data=p.getData();
 		Channel channel=ctx.channel();
-		Response response=Response.getResponse(channel);
-		RequestFace<? extends GeneratedMessage> rf=PathManager.getRequestFace(path,data);
+		//Response response=Response.getResponse(channel);
+		RequestFace<? extends GeneratedMessage> rf=MappingManager.getRequestFace(path);
 		ParameterizedType pt = (ParameterizedType) rf.getClass().getGenericInterfaces()[0]; 
 		Type type=pt.getActualTypeArguments()[0];//GeneratedMessage type->User type
 		Object dataObject=((Class<?>)type).getMethod("parseFrom", ByteString.class).invoke(null, data);
-		rf.getClass().getMethod("request", dataObject.getClass(),Response.class).invoke(rf.getClass().newInstance(), dataObject,response);
+		rf.getClass().getMethod("request", dataObject.getClass(),Channel.class).invoke(rf.getClass().newInstance(), dataObject,channel);
 	}
 }

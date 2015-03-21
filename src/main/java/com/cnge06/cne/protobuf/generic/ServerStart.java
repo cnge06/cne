@@ -12,11 +12,13 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
-public class Server {
+public class ServerStart {
 	private static int PORT = 9090;
 	//private static MessageLite messageLite=Protocol.getDefaultInstance();
-
 	public static void start() throws InterruptedException {
+		ServerStart.start(PORT);
+	}
+	public static void start(int port) throws InterruptedException {
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
@@ -55,7 +57,7 @@ public class Server {
 					});
 
 			// Start the server.
-			ChannelFuture f = b.bind(PORT).sync();
+			ChannelFuture f = b.bind(port).sync();
 
 			// Wait until the server socket is closed.
 			f.channel().closeFuture().sync();
@@ -66,7 +68,15 @@ public class Server {
 		}
 	}
 	
+	public static int getPORT() {
+		return PORT;
+	}
+
+	public static void setPORT(int pORT) {
+		PORT = pORT;
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
-		Server.start();
+		ServerStart.start();
 	}
 }

@@ -1,4 +1,4 @@
-package com.cnge06.cne.protobuf.generic;
+package com.cnge06.cne.example.protobuf.generic;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -10,11 +10,15 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+import com.cnge06.cne.protobuf.generic.MyFrameDecoder;
+import com.cnge06.cne.protobuf.generic.MyFrameEncoder;
+
 public class Client {
 	private static String host="192.168.1.100";
 	private static int port=9090;
 	//private static MessageLite messageLite=Protocol.getDefaultInstance();
 	public static void start() throws InterruptedException {
+		Mapping.registerPath();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
 			Bootstrap b = new Bootstrap(); // (1)
