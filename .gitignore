@@ -24,3 +24,7 @@ hs_err_pid*
 .classpath
 .settings
 bin/
+
+/.settings
+/.project
+/.classpath
