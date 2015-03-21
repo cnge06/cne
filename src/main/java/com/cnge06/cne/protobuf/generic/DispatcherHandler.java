@@ -16,12 +16,10 @@ public class DispatcherHandler extends ChannelHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
-		//super.channelRead(ctx, msg);
 		Protocol p = (Protocol)msg;
 		String path=p.getPath();
 		ByteString data=p.getData();
 		Channel channel=ctx.channel();
-		//Response response=Response.getResponse(channel);
 		RequestFace<? extends GeneratedMessage> rf=MappingManager.getRequestFace(path);
 		ParameterizedType pt = (ParameterizedType) rf.getClass().getGenericInterfaces()[0]; 
 		Type type=pt.getActualTypeArguments()[0];//GeneratedMessage type->User type

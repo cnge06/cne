@@ -6,7 +6,7 @@ import java.util.Map;
 import com.google.protobuf.GeneratedMessage;
 
 /**
- * 路径管理器
+ * MappingManager
  * 
  * @author junmeng04
  * 

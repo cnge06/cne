@@ -25,10 +25,6 @@ public class MyFrameEncoder extends MessageToByteEncoder<MessageLiteOrBuilder> {
         	out.writeInt(data.length);
             out.writeBytes(data);
         }
-		/*byte[] data = protocol.toBuilder().build().toByteArray();
-        out.writeInt(data.length);
-        out.writeBytes(data);*/
-		
 	}
 
 }
