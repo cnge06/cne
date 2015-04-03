@@ -1,4 +1,4 @@
-package com.cnge06.cne.example.protobuf.generic;
+package com.cnge06.cne.example.protobuf.m;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -10,14 +10,15 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-import com.cnge06.cne.protobuf.generic.MyFrameDecoder;
-import com.cnge06.cne.protobuf.generic.MyFrameEncoder;
+import com.cnge06.cne.protobuf.m.FrameDecoder;
+import com.cnge06.cne.protobuf.m.FrameEncoder;
 
 public class Client {
 	private static String host="192.168.1.100";
 	private static int port=9090;
 	//private static MessageLite messageLite=Protocol.getDefaultInstance();
 	public static void start() throws InterruptedException {
+		//Mapping.registerPath();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
 			Bootstrap b = new Bootstrap(); // (1)
@@ -33,9 +34,9 @@ public class Client {
                 	/*p.addLast("frameDecoder",new ProtobufVarint32FrameDecoder());
 					p.addLast("protobufDecoder",
 					        new ProtobufDecoder(messageLite));*/
-                	p.addLast("frameDecoder",new MyFrameDecoder());
+                	p.addLast("frameDecoder",new FrameDecoder());
 					p.addLast(new ClientHandler());
-					p.addLast("frameEncoder",new MyFrameEncoder());
+					p.addLast("frameEncoder",new FrameEncoder());
 					/*p.addLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
 					p.addLast("protobufEncoder", new ProtobufEncoder());*/
                     
