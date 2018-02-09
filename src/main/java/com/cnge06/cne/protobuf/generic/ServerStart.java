@@ -19,7 +19,7 @@ public class ServerStart {
 		ServerStart.start(PORT);
 	}
 	public static void start(int port) throws InterruptedException {
-		EventLoopGroup bossGroup = new NioEventLoopGroup();
+		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
 			ServerBootstrap b = new ServerBootstrap();
