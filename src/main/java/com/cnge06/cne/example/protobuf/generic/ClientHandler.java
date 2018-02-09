@@ -1,13 +1,12 @@
 package com.cnge06.cne.example.protobuf.generic;
 
-import io.netty.channel.ChannelHandlerAdapter;
-import io.netty.channel.ChannelHandlerContext;
-
 import com.google.protobuf.ByteString;
 import com.msg.Msg.Protocol;
 import com.msg.Msg.User;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class ClientHandler extends ChannelHandlerAdapter {
+public class ClientHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {

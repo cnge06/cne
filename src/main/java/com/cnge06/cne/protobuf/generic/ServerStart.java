@@ -68,14 +68,6 @@ public class ServerStart {
 		}
 	}
 	
-	public static int getPORT() {
-		return PORT;
-	}
-
-	public static void setPORT(int pORT) {
-		PORT = pORT;
-	}
-	
 	public static void main(String[] args) throws InterruptedException {
 		ServerStart.start();
 	}

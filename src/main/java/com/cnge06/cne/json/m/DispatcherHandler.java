@@ -2,12 +2,11 @@ package com.cnge06.cne.json.m;
 
 import com.cnge06.cne.protobuf.m.MappingManager;
 import com.cnge06.cne.protobuf.m.MappingObject;
-
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class DispatcherHandler extends ChannelHandlerAdapter {
+public class DispatcherHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)

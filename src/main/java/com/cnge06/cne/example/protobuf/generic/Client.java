@@ -14,7 +14,7 @@ import com.cnge06.cne.protobuf.generic.MyFrameDecoder;
 import com.cnge06.cne.protobuf.generic.MyFrameEncoder;
 
 public class Client {
-	private static String host="192.168.1.100";
+	private static String host="localhost";
 	private static int port=9090;
 	//private static MessageLite messageLite=Protocol.getDefaultInstance();
 	public static void start() throws InterruptedException {

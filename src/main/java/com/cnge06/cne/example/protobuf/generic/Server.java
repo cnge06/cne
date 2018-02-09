@@ -5,6 +5,6 @@ import com.cnge06.cne.protobuf.generic.ServerStart;
 public class Server {
 	public static void main(String[] args) throws InterruptedException {
 		Mapping.registerPath();
-		ServerStart.start();
+		ServerStart.start(9090);
 	}
 }

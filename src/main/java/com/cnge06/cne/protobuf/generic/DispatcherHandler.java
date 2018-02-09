@@ -1,17 +1,16 @@
 package com.cnge06.cne.protobuf.generic;
 
+import com.google.protobuf.ByteString;
+import com.google.protobuf.GeneratedMessage;
+import com.msg.Msg.Protocol;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import com.google.protobuf.ByteString;
-import com.google.protobuf.GeneratedMessage;
-import com.msg.Msg.Protocol;
-
-public class DispatcherHandler extends ChannelHandlerAdapter {
+public class DispatcherHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)

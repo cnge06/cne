@@ -10,7 +10,9 @@
 		<repository>
 			<id>netty</id>
 			<name>netty repository</name>
-			<url>http://clinker.netty.io/nexus/content/repositories/snapshots/io/netty</url>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<!--<url>http://mvnrepository.com/artifact</url>
+			<url>http://clinker.netty.io/nexus/content/repositories/snapshots/io/netty</url>-->
 		</repository>
 	</repositories>
 
@@ -18,7 +20,7 @@
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
-			<version>5.0.0.Alpha1</version>
+			<version>4.1.21.Final</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
